@@ -24,11 +24,22 @@ app.set('view engine', 'handlebars');
 // Make public a static dir to serve our static files
 app.use(express.static("public"));
 
-// Mongoose hooks/connects to our mongo db and allows us to have access to the MongoDB commands for easy CRUD 
-mongoose.connect("mongodb://localhost/scrape-mine-mods");
+// --------------- DATABASE CONFIGURATION WITH MONGOOSE ----------------------//
+// --------------------- Define local MongoDB URI ----------------------------//
+var databaseUri = 'mongodb://localhost/scrape-mine-mods'
+//----------------------------------------------------------------------------//
+  if (process.env.MONGODB_URI) {
+    // THIS EXECUTES IF THIS IS BEING EXECUTED IN YOUR HEROKU APP
+    mongoose.connect(process.env.MONGODB_URI);
+  } else {
+    mongoose.connect(databaseUri);
+  }
+
+// ---------------- END DATABASE CONFIGURATION -------------------------------//
+
 var db = mongoose.connection;
 
-// if any errors than console errors
+// Show any DB errors in the console
 db.on("error", function (error) {
   console.log("Mongoose Error: ", error);
 });
