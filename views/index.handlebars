@@ -1,0 +1,54 @@
+<div class="container" style="background-image:url(/img/minecraft.bg.jpg)">
+    <div class="header clearfix rounded">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://deejxue.aternos.me/" target="_blank">Play Minecraft</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/deejxue" target="_blank">Github</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 id="scrape-title">Scraping the Mine....</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="jumboheader">Minecraft Scraper</h1>
+        <p class="lead"><b>All the Minecraft news fit to consume....remember no raw chicken....</b></p>
+        <p class="lead">Find new Mods to install on your server or get ideas for developing your own</p>
+        <p><a class="btn btn-lg btn-success" href="/scrape" role="button">Return the latest news and blogs!</a></p>
+    </div>
+
+    {{!--News Cards--}} {{!--Iterate through scrape results, populate handlebars with titles, links, and article snippets.--}} 
+    
+    {{#each result}}
+    <div class="card news-section">
+        <a href="{{this.link}}">
+            <h4 class="card-header">{{this.title}}</h4>
+        </a>
+
+        <div class="card-block">
+            {{!--
+            <h4 class="card-title"></h4>
+            </a>--}}
+            <a href="{{this.link}}">
+                <p class="card-text">{{this.articleSnippet}}</p>
+            </a>
+            <br>
+            <a href="/articles/{{this._id}}" class="btn btn-primary">Opinions....</a>
+        </div>
+
+    </div>
+    <br>
+    <br> {{/each}}
+
+    <footer class="footer">
+        <p>&copy; Fire Dragon - Minecraft Master.... 2017</p>
+    </footer>
+
+</div>
+<!-- /container -->
