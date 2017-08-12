@@ -19,7 +19,7 @@ ________________________________________________________________________________
 ## Table of Contents
 
 - [About Scrape My Minecraft](#about-scrape-my-minecraft)
-- [More info about creating the app](#creating-the app)
+- [More info about creating the app](#creating-the-app)
 - [Install the app locally](#downloading-and-installing)
 - [Improvements I'd like to make...](#improvements-id-like-to-make)
 
